@@ -53,4 +53,4 @@ The app may occasionally show a short Project M teaser. Use **Mute for a week** 
 
 ## Android app
 
-A lightweight Android WebView app is in `android/`. It opens the live GrowJEE site, so sign-in and cloud sync continue to use the same account. PDF upload uses Android's file picker. The **Build Android APK** GitHub Actions workflow automatically creates an installable debug APK on changes to the Android app. Download `GrowJEE-Android-APK` from the workflow run's **Artifacts** section. This debug APK is for direct installation; it is not a Google Play release.
+GrowJEE includes a native Android interface in `android/` with native screens, forms, chapter priorities, and Supabase login and sync to the same account. The app is not a website wrapper. The **Build Android APK** GitHub Actions workflow automatically creates an installable debug APK on changes to the Android app. Download `GrowJEE-Android-APK` from the workflow run's **Artifacts** section. This debug APK is for direct installation; it is not a Google Play release.
