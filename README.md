@@ -1,0 +1,46 @@
+# JEE Control Centre · Project M
+
+A static study dashboard with a dark glass interface. The app is one HTML file; Supabase provides optional accounts, cloud sync, and read-only teacher access.
+
+## Run it
+
+Open `index.html` in a current browser for local use. For online accounts, host it over HTTPS on GitHub Pages. Put `index.html` at the root of a GitHub repository, push it, then enable **Settings → Pages → Deploy from a branch** and choose the main branch and root folder.
+
+## Enable login and online sync
+
+1. Create a Supabase project.
+2. In its SQL Editor, run [`supabase_setup.sql`](supabase_setup.sql). It creates the progress and sharing tables, enables row level security, and allows each account to edit only its own progress. A teacher can read a limited progress summary only after the student shares with that signed-in email.
+3. In Supabase Authentication settings, set the Site URL and allowed redirect URL to your GitHub Pages address, and keep email confirmation enabled. To send sign-up and reset emails to a teacher or student outside your Supabase organization, configure custom SMTP; Supabase’s default mail service only sends to project team addresses. See [Supabase custom SMTP setup](https://supabase.com/docs/guides/auth/auth-smtp).
+4. Open the hosted app, choose **Account & sync**, and enter the Supabase project URL and **publishable/anon key**. Do not use a secret or service-role key.
+5. Create the student account. Sign in from any device using the same project settings to load the same cloud data. The first sign-in can offer to upload existing records from that browser.
+6. To share progress, the student enters the teacher’s signed-in account email in **Account & sync**, then sends the teacher the GitHub Pages link. The teacher signs in with that exact email and opens **Students shared with you**. Access is read-only and can be revoked by the student. Teachers see study time, question accuracy, chapter completion, low-star priorities, and recent mock scores; private notes and mistake explanations stay with the student.
+
+The Supabase URL and publishable/anon key are stored in that browser’s local settings. Each device needs the same project settings. The app uses the signed-in user’s access token for its own row; database policies are the security boundary. Never put a Supabase secret or service-role key in this public site. See [Supabase RLS guidance](https://supabase.com/docs/guides/database/postgres/row-level-security).
+
+Cloud storage syncs after edits and keeps a local cache for responsiveness. Signing out hides that account’s records in the app. Keep using **Export backup** as a separate recovery copy.
+
+## Stars and priorities
+
+Enter the latest chapter mock mark out of 100 in **Chapter Master**. The rating updates automatically:
+
+| Mark | Stars |
+|---:|:---|
+| Under 20 | 0 |
+| 20–39 | 1 |
+| 40–59 | 2 |
+| 60–79 | 3 |
+| 80–99 | 4 |
+| 100 | 5 |
+
+Chapters with 0–2 stars appear in the priority queue, lowest score first. Each changed mark is retained in score history. All student performance inputs start blank.
+
+## ChatGPT and Trello
+
+- **Study with ChatGPT** opens ChatGPT and copies a prompt containing your low-star chapter list. Paste it into a new chat; the site does not access or send anything to your private ChatGPT conversations.
+- **Trello card pack** downloads a CSV of priority chapters that you can use to make Trello cards. This static GitHub Pages version does not keep Trello API tokens or write to a Trello account.
+
+## Saving and sharing progress
+
+With Supabase configured, study data is stored online and synced to the signed-in account. Without configuration or sign-in, the app remains in local-only mode. Use **Share snapshot → Print / Save as PDF** for a portable report, or invite a teacher account for live read-only access.
+
+The starter topics include JEE Main 2027 and a latest available JEE Advanced 2026 Chemistry supplement. Confirm the official syllabus for your exam year.
