@@ -11,3 +11,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "GrowJEE"
 include(":app")
+project(":app").projectDir = file("android/app")
