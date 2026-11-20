@@ -50,3 +50,7 @@ The starter topics include JEE Main 2027 and a latest available JEE Advanced 202
 Each mistake can be linked to a saved mock test. Open a mock test to see its related mistakes and attach a question paper or answer sheet PDF (up to 10 MB). Run the updated `supabase_setup.sql` once in the Supabase SQL Editor to enable private cloud PDF storage. Files are scoped to the signed-in student's account. If a question-paper cloud upload fails, it is saved in that browser instead; browser-only files do not follow the account to another device. Answer sheets require cloud storage. Teachers can see the shared progress snapshot, but mock PDFs are private to the student account and are not included in the teacher view.
 
 The app may occasionally show a short Project M teaser. Use **Mute for a week** to pause them on that browser.
+
+## Android app
+
+A lightweight Android WebView app is in `android/`. It opens the live GrowJEE site, so sign-in and cloud sync continue to use the same account. PDF upload uses Android's file picker. The **Build Android APK** GitHub Actions workflow automatically creates an installable debug APK on changes to the Android app. Download `GrowJEE-Android-APK` from the workflow run's **Artifacts** section. This debug APK is for direct installation; it is not a Google Play release.
