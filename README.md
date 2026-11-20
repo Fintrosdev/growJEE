@@ -44,3 +44,9 @@ Chapters with 0–2 stars appear in the priority queue, lowest score first. Each
 With Supabase configured, study data is stored online and synced to the signed-in account. Without configuration or sign-in, the app remains in local-only mode. Use **Share snapshot → Print / Save as PDF** for a portable report, or invite a teacher account for live read-only access.
 
 The starter topics include JEE Main 2027 and a latest available JEE Advanced 2026 Chemistry supplement. Confirm the official syllabus for your exam year.
+
+## Mock-test papers and linked mistakes
+
+Each mistake can be linked to a saved mock test. Open a mock test to see its related mistakes and attach a question paper or answer sheet PDF (up to 10 MB). Run the updated `supabase_setup.sql` once in the Supabase SQL Editor to enable private cloud PDF storage. Files are scoped to the signed-in student's account. If a question-paper cloud upload fails, it is saved in that browser instead; browser-only files do not follow the account to another device. Answer sheets require cloud storage. Teachers can see the shared progress snapshot, but mock PDFs are private to the student account and are not included in the teacher view.
+
+The app may occasionally show a short Project M teaser. Use **Mute for a week** to pause them on that browser.

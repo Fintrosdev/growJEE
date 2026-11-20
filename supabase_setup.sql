@@ -80,4 +80,53 @@ create policy "students revoke their own teacher invites"
   on public.jee_shares for delete to authenticated
   using (student_id = (select auth.uid()));
 
+-- Private mock-test papers: each signed-in student can access only files
+-- in their own auth.uid() folder. The bucket accepts PDFs up to 10 MB.
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('jee-mock-pdfs', 'jee-mock-pdfs', false, 10485760, array['application/pdf'])
+on conflict (id) do update
+set public = false,
+    file_size_limit = excluded.file_size_limit,
+    allowed_mime_types = excluded.allowed_mime_types;
+
+drop policy if exists "students read their own mock PDFs" on storage.objects;
+create policy "students read their own mock PDFs"
+  on storage.objects for select to authenticated
+  using (
+    bucket_id = 'jee-mock-pdfs'
+    and (storage.foldername(name))[1] = (select auth.uid()::text)
+    and storage.extension(name) = 'pdf'
+  );
+
+drop policy if exists "students upload their own mock PDFs" on storage.objects;
+create policy "students upload their own mock PDFs"
+  on storage.objects for insert to authenticated
+  with check (
+    bucket_id = 'jee-mock-pdfs'
+    and (storage.foldername(name))[1] = (select auth.uid()::text)
+    and storage.extension(name) = 'pdf'
+  );
+
+drop policy if exists "students replace their own mock PDFs" on storage.objects;
+create policy "students replace their own mock PDFs"
+  on storage.objects for update to authenticated
+  using (
+    bucket_id = 'jee-mock-pdfs'
+    and (storage.foldername(name))[1] = (select auth.uid()::text)
+    and storage.extension(name) = 'pdf'
+  )
+  with check (
+    bucket_id = 'jee-mock-pdfs'
+    and (storage.foldername(name))[1] = (select auth.uid()::text)
+    and storage.extension(name) = 'pdf'
+  );
+
+drop policy if exists "students delete their own mock PDFs" on storage.objects;
+create policy "students delete their own mock PDFs"
+  on storage.objects for delete to authenticated
+  using (
+    bucket_id = 'jee-mock-pdfs'
+    and (storage.foldername(name))[1] = (select auth.uid()::text)
+    and storage.extension(name) = 'pdf'
+  );
 commit;
