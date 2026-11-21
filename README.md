@@ -54,3 +54,7 @@ The app may occasionally show a short Project M teaser. Use **Mute for a week** 
 ## Android app
 
 GrowJEE includes a native Android interface in `android/` with native screens, forms, chapter priorities, and Supabase login and sync to the same account. The app is not a website wrapper. The **Build Android APK** GitHub Actions workflow automatically creates an installable debug APK on changes to the Android app. Download `GrowJEE-Android-APK` from the workflow run's **Artifacts** section. This debug APK is for direct installation; it is not a Google Play release.
+
+## Windows desktop app
+
+The `windows/GrowJEE.Desktop` project is a native Windows WPF app with the same chapter and record format, account login, cloud sync, mock-linked mistakes, teacher sharing, and PDF paper attachments. Its **Build Windows desktop app** GitHub Actions workflow produces a self-contained x64 app package. Download `GrowJEE-Windows-Desktop` from the successful run's **Artifacts** section, unzip it, and run `GrowJEE.exe`. Sign in using the same GrowJEE account to load your cloud records.

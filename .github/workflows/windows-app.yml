@@ -1,0 +1,29 @@
+name: Build Windows desktop app
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'windows/**'
+      - '.github/workflows/windows-app.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Publish self-contained Windows app
+        run: dotnet publish windows/GrowJEE.Desktop/GrowJEE.Desktop.csproj --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true --output windows/GrowJEE.Desktop/publish
+      - name: Package app
+        shell: pwsh
+        run: Compress-Archive -Path windows/GrowJEE.Desktop/publish/* -DestinationPath windows/GrowJEE-Desktop.zip -Force
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GrowJEE-Windows-Desktop
+          path: windows/GrowJEE-Desktop.zip
+          if-no-files-found: error
+          retention-days: 30
