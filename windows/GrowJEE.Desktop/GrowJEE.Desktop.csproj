@@ -8,9 +8,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>GrowJEE</AssemblyName>
     <RootNamespace>GrowJEE.Desktop</RootNamespace>
+    <ApplicationIcon>Assets\growjee-emblem.ico</ApplicationIcon>
+    <Version>1.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" />
     <Content Include="chapters.json" CopyToOutputDirectory="PreserveNewest" />
+    <Resource Include="Assets\growjee-emblem.png" />
+    <Resource Include="Assets\growjee-emblem.ico" />
   </ItemGroup>
 </Project>

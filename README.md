@@ -58,3 +58,5 @@ GrowJEE includes a native Android interface in `android/` with native screens, f
 ## Windows desktop app
 
 The `windows/GrowJEE.Desktop` project is a native Windows WPF app with the same chapter and record format, account login, cloud sync, mock-linked mistakes, teacher sharing, and PDF paper attachments. Its **Build Windows desktop app** GitHub Actions workflow produces a self-contained x64 app package. Download `GrowJEE-Windows-Desktop` from the successful run's **Artifacts** section, unzip it, and run `GrowJEE.exe`. Sign in using the same GrowJEE account to load your cloud records.
+
+The website and Windows desktop app use the Project M lunar emblem. The desktop app includes randomized Project M signal teasers.

@@ -20,6 +20,7 @@ namespace GrowJEE.Desktop;
 public partial class MainWindow : Window
 {
     const string Api = "https://filbyqskhaivvimxudjr.supabase.co";
+    const string ReleasesApi = "https://api.github.com/repos/Fintrosdev/growJEE/releases/latest";
     const string PublishableKey = "sb_publishable_U8rPRHcKY3usIzTKNW47LQ_1e1uwqoS";
     static readonly HttpClient Http = new() { Timeout = TimeSpan.FromSeconds(25) };
     static readonly string[] Pages = ["Dashboard", "Chapter Master", "Daily Study Log", "Question Bank Log", "Mock Test Analytics", "Mistake Register", "Revision Scheduler", "Target Planner"];
@@ -57,7 +58,19 @@ public partial class MainWindow : Window
         Render(Session is null);
     }
 
-    async void Window_Loaded(object sender, RoutedEventArgs e) { if (Session is not null) await LoadCloud(); }
+    async void Window_Loaded(object sender, RoutedEventArgs e)
+    {
+        _ = CheckForUpdatesAsync();
+        if (Session is not null) await LoadCloud();
+        var signals = new[] { "PROJECT M // Signal detected", "FALL 2030 // Timeline anomaly logged", "M IS WATCHING // Streak acknowledged", "TRANSMISSION 02 // The next chapter is yours", "PROJECT M // Something is taking shape" };
+        var timer = new System.Windows.Threading.DispatcherTimer { Interval = TimeSpan.FromSeconds(35) };
+        timer.Tick += (_, _) =>
+        {
+            timer.Interval = TimeSpan.FromSeconds(Random.Shared.Next(55, 126));
+            if (IsActive && Random.Shared.NextDouble() < .72) Toast(signals[Random.Shared.Next(signals.Length)]);
+        };
+        timer.Start();
+    }
 
     // ───────────────────────── JSON helpers ─────────────────────────
     JsonArray Arr(JsonNode? node) => node as JsonArray ?? new JsonArray();
