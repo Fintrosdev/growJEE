@@ -60,7 +60,6 @@ public partial class MainWindow : Window
 
     async void Window_Loaded(object sender, RoutedEventArgs e)
     {
-        _ = CheckForUpdatesAsync();
         if (Session is not null) await LoadCloud();
         var signals = new[] { "PROJECT M // Signal detected", "FALL 2030 // Timeline anomaly logged", "M IS WATCHING // Streak acknowledged", "TRANSMISSION 02 // The next chapter is yours", "PROJECT M // Something is taking shape" };
         var timer = new System.Windows.Threading.DispatcherTimer { Interval = TimeSpan.FromSeconds(35) };
