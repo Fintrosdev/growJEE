@@ -100,6 +100,7 @@
             <Button Content="☁   Account &amp; sync" Click="Account_Click" Margin="0,3" HorizontalContentAlignment="Left" Style="{StaticResource PrimaryButton}"/>
             <Button Content="Export backup" Click="Export_Click" Margin="0,3"/>
             <Button Content="Import backup" Click="Import_Click" Margin="0,3"/>
+            <TextBlock Text="© 2026 FintrosDev · The Basement · Darshrey Media. All rights reserved." Foreground="{StaticResource TextDim}" FontSize="9.5" TextWrapping="Wrap" MaxWidth="205" Margin="3,13,3,0"/>
           </StackPanel>
 
           <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">

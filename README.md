@@ -1,5 +1,7 @@
 # JEE Control Centre · Project M
 
+© 2026 FintrosDev · The Basement · Darshrey Media. All rights reserved.
+
 A static study dashboard with a dark glass interface. The app is one HTML file; Supabase provides optional accounts, cloud sync, and read-only teacher access.
 
 ## Run it
