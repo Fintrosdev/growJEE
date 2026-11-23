@@ -303,7 +303,19 @@ fun DashboardScreen(vm: AppVm, onNav: (String) -> Unit, onAdd: (String) -> Unit)
                 }
             }
         }
-    }
+            item {
+            GlassCard(Modifier.fillMaxWidth().reveal(12)) {
+                GText("PROJECT M // SOURCE INTEGRITY", 10f, C.Rose, FontWeight.Bold)
+                GText("MESSING WITH SOURCE CODE TO END IN SEVERE REPRUCISSIONS", 12.5f, C.Main, FontWeight.SemiBold, Modifier.padding(top = 7.dp))
+                GText("A dramatic Project M teaser.", 11f, C.Muted, modifier = Modifier.padding(top = 3.dp))
+            }
+        }
+        item {
+            Column(Modifier.fillMaxWidth().padding(horizontal = 4.dp, vertical = 6.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                GText("© 2026 FintrosDev · The Basement · Darshrey Media. All rights reserved.", 10f, C.Dim)
+            }
+        }
+}
 }
 
 // ───────────────────────── List pages ─────────────────────────
