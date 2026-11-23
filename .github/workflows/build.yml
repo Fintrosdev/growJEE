@@ -23,3 +23,30 @@ jobs:
         with:
           name: GrowJEE-debug-apk
           path: app/build/outputs/apk/debug/*.apk
+      - name: Build release APK
+        run: gradle assembleRelease --stacktrace
+      - name: Prepare apksigner for local key signing
+        run: cp "$ANDROID_HOME/build-tools/35.0.0/lib/apksigner.jar" ./apksigner.jar
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GrowJEE-unsigned-release-apk
+          path: |
+            app/build/outputs/apk/release/*.apk
+            apksigner.jar
+      - name: Build signed release APK
+        if: ${{ secrets.GROWJEE_KEYSTORE_BASE64 != '' && secrets.GROWJEE_KEYSTORE_PASSWORD != '' && secrets.GROWJEE_KEY_ALIAS != '' && secrets.GROWJEE_KEY_PASSWORD != '' }}
+        env:
+          GROWJEE_KEYSTORE_BASE64: ${{ secrets.GROWJEE_KEYSTORE_BASE64 }}
+          GROWJEE_KEYSTORE_PASSWORD: ${{ secrets.GROWJEE_KEYSTORE_PASSWORD }}
+          GROWJEE_KEY_ALIAS: ${{ secrets.GROWJEE_KEY_ALIAS }}
+          GROWJEE_KEY_PASSWORD: ${{ secrets.GROWJEE_KEY_PASSWORD }}
+        run: |
+          echo "$GROWJEE_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/growjee-release.jks"
+          export GROWJEE_KEYSTORE_FILE="$RUNNER_TEMP/growjee-release.jks"
+          gradle assembleRelease --stacktrace
+      - name: Upload signed release APK
+        if: ${{ secrets.GROWJEE_KEYSTORE_BASE64 != '' && secrets.GROWJEE_KEYSTORE_PASSWORD != '' && secrets.GROWJEE_KEY_ALIAS != '' && secrets.GROWJEE_KEY_PASSWORD != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: GrowJEE-signed-release-apk
+          path: app/build/outputs/apk/release/*.apk
