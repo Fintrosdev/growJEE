@@ -4,6 +4,12 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
+val signingStore = System.getenv("GROWJEE_KEYSTORE_FILE")
+val signingStorePassword = System.getenv("GROWJEE_KEYSTORE_PASSWORD")
+val signingAlias = System.getenv("GROWJEE_KEY_ALIAS")
+val signingKeyPassword = System.getenv("GROWJEE_KEY_PASSWORD")
+val hasReleaseSigning = listOf(signingStore, signingStorePassword, signingAlias, signingKeyPassword).all { !it.isNullOrBlank() }
+
 android {
     namespace = "com.growjee.app"
     compileSdk = 35
@@ -15,8 +21,21 @@ android {
         versionCode = 1
         versionName = "1.0"
     }
+    signingConfigs {
+        if (hasReleaseSigning) {
+            create("release") {
+                storeFile = file(signingStore!!)
+                storePassword = signingStorePassword
+                keyAlias = signingAlias
+                keyPassword = signingKeyPassword
+            }
+        }
+    }
     buildTypes {
-        release { isMinifyEnabled = false }
+        release {
+            isMinifyEnabled = false
+            if (hasReleaseSigning) signingConfig = signingConfigs.getByName("release")
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
