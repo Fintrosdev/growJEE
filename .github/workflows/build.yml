@@ -34,18 +34,24 @@ jobs:
             app/build/outputs/apk/release/*.apk
             apksigner.jar
       - name: Build signed release APK
-        if: ${{ secrets.GROWJEE_KEYSTORE_BASE64 != '' && secrets.GROWJEE_KEYSTORE_PASSWORD != '' && secrets.GROWJEE_KEY_ALIAS != '' && secrets.GROWJEE_KEY_PASSWORD != '' }}
+        id: sign-release
         env:
           GROWJEE_KEYSTORE_BASE64: ${{ secrets.GROWJEE_KEYSTORE_BASE64 }}
           GROWJEE_KEYSTORE_PASSWORD: ${{ secrets.GROWJEE_KEYSTORE_PASSWORD }}
           GROWJEE_KEY_ALIAS: ${{ secrets.GROWJEE_KEY_ALIAS }}
           GROWJEE_KEY_PASSWORD: ${{ secrets.GROWJEE_KEY_PASSWORD }}
         run: |
+          if [ -z "$GROWJEE_KEYSTORE_BASE64" ] || [ -z "$GROWJEE_KEYSTORE_PASSWORD" ] || [ -z "$GROWJEE_KEY_ALIAS" ] || [ -z "$GROWJEE_KEY_PASSWORD" ]; then
+            echo "signed=false" >> "$GITHUB_OUTPUT"
+            echo "Signing secrets are not configured; skipping signed release."
+            exit 0
+          fi
           echo "$GROWJEE_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/growjee-release.jks"
           export GROWJEE_KEYSTORE_FILE="$RUNNER_TEMP/growjee-release.jks"
           gradle assembleRelease --stacktrace
+          echo "signed=true" >> "$GITHUB_OUTPUT"
       - name: Upload signed release APK
-        if: ${{ secrets.GROWJEE_KEYSTORE_BASE64 != '' && secrets.GROWJEE_KEYSTORE_PASSWORD != '' && secrets.GROWJEE_KEY_ALIAS != '' && secrets.GROWJEE_KEY_PASSWORD != '' }}
+        if: steps.sign-release.outputs.signed == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: GrowJEE-signed-release-apk
