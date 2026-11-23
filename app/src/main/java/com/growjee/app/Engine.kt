@@ -123,7 +123,7 @@ object Focus {
         if (cfg.timerRunning()) return
         val now = System.currentTimeMillis()
         val t = FocusTimerState(now, now + minutes * 60_000L, minutes, subject, chapter, studyType, isBreak, block)
-        cfg.setTimer(t)
+        cfg.updateTimer(t)
         Alarms.scheduleTimerEnd(ctx, t.endMs)
         showOngoing(ctx, t)
     }
@@ -145,7 +145,7 @@ object Focus {
         val t = cfg.timer ?: return
         Alarms.cancelTimerEnd(ctx)
         Notif.cancel(ctx, Notif.ID_TIMER)
-        cfg.setTimer(null)
+        cfg.updateTimer(null)
         val elapsed = ((minOf(System.currentTimeMillis(), t.endMs) - t.startMs) / 60_000L).toInt()
         if (!t.isBreak && elapsed >= 1) {
             log(ctx, t, elapsed)
@@ -159,7 +159,7 @@ object Focus {
         val cfg = Cfg.get(ctx)
         val t = cfg.timer ?: return
         Notif.cancel(ctx, Notif.ID_TIMER)
-        cfg.setTimer(null)
+        cfg.updateTimer(null)
         if (t.isBreak) {
             Notif.post(ctx, Notif.ID_DONE, Notif.build(ctx, Notif.CH_DONE, "Break over", "Back to it. One more focused block?").setAutoCancel(true).setDefaults(NotificationCompat.DEFAULT_ALL))
         } else {

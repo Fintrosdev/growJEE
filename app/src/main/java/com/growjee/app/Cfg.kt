@@ -41,7 +41,7 @@ class Cfg private constructor(ctx: Context) {
 
     // ───── Focus timer ─────
     var timer by mutableStateOf(readTimer()); private set
-    fun setTimer(t: FocusTimerState?) {
+    fun updateTimer(t: FocusTimerState?) {
         timer = t
         sp.edit().putString("timer", t?.let {
             JSONObject().put("s", it.startMs).put("e", it.endMs).put("m", it.minutes).put("sub", it.subject).put("ch", it.chapter)
