@@ -1,0 +1,327 @@
+[
+  {
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Kinematics",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Work, Energy and Power",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Rotational Motion",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Gravitation",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Properties of Solids and Liquids",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Thermodynamics",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Kinetic Theory of Gases",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Oscillations and Waves",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Electrostatics",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Current Electricity",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Magnetic Effects of Current and Magnetism",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Electromagnetic Induction and Alternating Currents",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Electromagnetic Waves",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Optics",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Dual Nature of Matter and Radiation",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Atoms and Nuclei",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Electronic Devices",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Experimental Skills",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Some Basic Concepts in Chemistry",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Atomic Structure",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Chemical Bonding and Molecular Structure",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Chemical Thermodynamics",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Solutions",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Equilibrium",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Redox Reactions and Electrochemistry",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Chemical Kinetics",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Classification of Elements and Periodicity in Properties",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "p-Block Elements",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "d- and f-Block Elements",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Coordination Compounds",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Purification and Characterisation of Organic Compounds",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Some Basic Principles of Organic Chemistry",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Hydrocarbons",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Organic Compounds Containing Halogens",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Organic Compounds Containing Oxygen",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Organic Compounds Containing Nitrogen",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Biomolecules",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Principles Related to Practical Chemistry",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Sets, Relations and Functions",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Complex Numbers and Quadratic Equations",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Matrices and Determinants",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Permutations and Combinations",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Binomial Theorem and Simple Applications",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Sequence and Series",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Limit, Continuity and Differentiability",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Integral Calculus",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Differential Equations",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Coordinate Geometry",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Three-Dimensional Geometry",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Vector Algebra",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Statistics and Probability",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Trigonometry",
+    "source": "JEE Main 2027"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "States of Matter: Gases and Liquids",
+    "source": "JEE Advanced 2026 supplement"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Solid State",
+    "source": "JEE Advanced 2026 supplement"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Surface Chemistry",
+    "source": "JEE Advanced 2026 supplement"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Hydrogen",
+    "source": "JEE Advanced 2026 supplement"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "s-Block Elements",
+    "source": "JEE Advanced 2026 supplement"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Isolation of Metals",
+    "source": "JEE Advanced 2026 supplement"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Principles of Qualitative Analysis",
+    "source": "JEE Advanced 2026 supplement"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Environmental Chemistry",
+    "source": "JEE Advanced 2026 supplement"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Polymers",
+    "source": "JEE Advanced 2026 supplement"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Chemistry in Everyday Life",
+    "source": "JEE Advanced 2026 supplement"
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Practical Organic Chemistry",
+    "source": "JEE Advanced 2026 supplement"
+  }
+]

@@ -1,9 +1,5 @@
 pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
+    repositories { google(); mavenCentral(); gradlePluginPortal() }
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -11,4 +7,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "GrowJEE"
 include(":app")
-project(":app").projectDir = file("android/app")
